@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<connectors>
+
+    <!-- A general purpose connector for clients. -->
+    <connector name="Client Connector">
+        <!-- The name or the IP address that the connector will bind to -->
+        <!--
+        <host></host>
+        -->
+
+        <!-- The port on which the connector will accept connections -->
+        <port>6785</port>
+
+        <socket-conditioning>
+
+            <!-- This value changes the size of the TCP input buffer. -->
+            <input-buffer-size>128K</input-buffer-size>
+
+            <!-- This value changes the size of the TCP output buffer. -->
+            <output-buffer-size>128K</output-buffer-size>
+
+        </socket-conditioning>
+
+        <!-- The maximum number of bytes all the sessions using this connector
+            can have queued. No limit is applied if a &lt;max-queued-bytes>
+            element is not present. -->
+        <max-queued-bytes>1G</max-queued-bytes>
+
+        <!-- Enable secure (SSL) connections on this connector. To disable
+            insecure connections, set the mandatory attribute to "true". -->
+        <key-store mandatory="false">
+
+            <file>../etc/sample.keystore</file>
+
+            <password>OB:0dm9lGVslzTpQ72S</password>
+
+        </key-store>
+
+        <!-- If this connector is required to serve HTTP requests then a valid
+            web-server entry in WebServer.xml must exist -->
+        <web-server>default</web-server>
+
+        <!-- This is the idle time (no inbound messages) before a client will be
+            pinged by the server. A response must be received by Diffusion
+            before the next interval, else the client is considered to be
+            disconnected. -->
+        <system-ping-frequency>90s</system-ping-frequency>
+
+        <!-- Example of reconnection configuration with keep-alive time set to
+            300s. This is the number of seconds the server will retain a session
+            in the DISCONNECTED state after connection is lost. If a client
+            fails to reconnect within this time, the server will close the
+            session. -->
+        <!--
+        <reconnect>
+            <keep-alive>300s</keep-alive>
+        </reconnect>
+        -->
+    </connector>
+
+    <!-- A connector for sessions that perform bulk transfers of data.
+        The network buffers and the outbound queue are larger to accommodate
+        higher data volumes at the expense of an increased memory footprint per
+        connection. This connector is suitable for accepting fan-out connections
+        from secondary servers; back-end clients that perform control functions
+        such as updating topics or authenticating sessions (see example fan-out
+        configuration for a secondary server in Server.xml); and for replication
+        connections between servers in a cluster (see Replication.xml). For
+        optimum performance, a control client or secondary server fan-out that
+        uses this connector should use an output buffer size equal to the
+        connector's input buffer size, and an input buffer size equal to the
+        connector's output buffer size. -->
+    <connector name="High Volume Connector">
+        <port>8090</port>
+        <queue-definition>LargeQueue</queue-definition>
+        <socket-conditioning>
+            <input-buffer-size>1024K</input-buffer-size>
+            <output-buffer-size>1024K</output-buffer-size>
+        </socket-conditioning>
+        <max-queued-bytes>1G</max-queued-bytes>
+        <key-store>
+            <file>../etc/sample.keystore</file>
+            <password>OB:0dm9lGVslzTpQ72S</password>
+        </key-store>
+        <web-server>default</web-server>
+        <system-ping-frequency>90s</system-ping-frequency>
+        <reconnect>
+            <recovery-buffer-size>10000</recovery-buffer-size>
+        </reconnect>
+    </connector>
+</connectors>

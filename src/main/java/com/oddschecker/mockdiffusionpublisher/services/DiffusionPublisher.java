@@ -1,4 +1,4 @@
-package com.oddschecker.mockdiffusionpublisher;
+package com.oddschecker.mockdiffusionpublisher.services;
 
 import com.oddschecker.mockdiffusionpublisher.models.Message;
 import com.oddschecker.mockdiffusionpublisher.models.Topic;
@@ -21,9 +21,20 @@ public class DiffusionPublisher {
 
     @Scheduled(initialDelay = 10000, fixedDelay = 2000)
     public void run() {
-        for(Map.Entry<String, Set<Message>> entry :topicMessageMap.entrySet()) {
+
+        Iterator<Map.Entry<String, Set<Message>>> entrySetIterator = topicMessageMap.entrySet().iterator();
+        while(entrySetIterator.hasNext()) {
+
+            Map.Entry<String, Set<Message>> entry = entrySetIterator.next();
+            if(entry.getValue() == null || entry.getValue().isEmpty()) {
+                entrySetIterator.remove();
+                continue;
+            }
+
             Iterator<Message> iterator = entry.getValue().iterator();
+
             while (iterator.hasNext()) {
+
                 Message message = iterator.next();
                 if(message.getPublishDate().isAfterNow()) { continue; }
                 diffusionService.publish(entry.getKey(), message);

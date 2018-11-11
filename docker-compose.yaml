@@ -1,0 +1,12 @@
+version: '3'
+services:
+  diffusion:
+    build: ./diffusion
+    ports:
+    - "6785"
+  web:
+    build: .
+    ports:
+    - "6787"
+    links:
+      - diffusion

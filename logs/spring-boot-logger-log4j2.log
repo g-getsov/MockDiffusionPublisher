@@ -1,25 +1,13 @@
-2018-11-08 01:50:41,672 INFO o.s.b.StartupInfoLogger [main] Starting MockDiffusionPublisherApplication on DESKTOP-F7N3NAH with PID 23300 (D:\Workspace\Java\target\classes started by Anonymous in D:\Workspace\Java)
-2018-11-08 01:50:41,676 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2018-11-08 01:50:42,280 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2018-11-08 01:50:42,293 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2018-11-08 01:50:42,297 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
-2018-11-08 01:50:42,298 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.12
-2018-11-08 01:50:42,303 INFO o.a.j.l.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-10.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\OpenVPN\bin;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Go\bin;C:\Users\Anonymous\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\Anonymous\AppData\Local\Programs\Python\Python37-32\;C:\Users\Anonymous\.cargo\bin;D:\Programs\Pyton3\Scripts\;D:\Programs\Pyton3\;C:\Users\Anonymous\AppData\Local\Microsoft\WindowsApps;D:\Programs\Microsoft VS Code\bin;D:\Programs\mingw64\bin;C:\Users\Anonymous\go\bin;.]
-2018-11-08 01:50:42,366 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2018-11-08 01:50:42,366 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 668 ms
-2018-11-08 01:50:42,383 INFO o.s.b.w.s.ServletRegistrationBean [main] Servlet dispatcherServlet mapped to [/]
-2018-11-08 01:50:42,386 INFO o.s.b.w.s.AbstractFilterRegistrationBean [main] Mapping filter: 'characterEncodingFilter' to: [/*]
-2018-11-08 01:50:42,386 INFO o.s.b.w.s.AbstractFilterRegistrationBean [main] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2018-11-08 01:50:42,386 INFO o.s.b.w.s.AbstractFilterRegistrationBean [main] Mapping filter: 'formContentFilter' to: [/*]
-2018-11-08 01:50:42,386 INFO o.s.b.w.s.AbstractFilterRegistrationBean [main] Mapping filter: 'requestContextFilter' to: [/*]
-2018-11-08 01:50:43,805 ERROR c.o.m.DiffusionService [main] Couldn't connect to diffusion
+2018-11-09 17:48:00,433 INFO o.s.b.StartupInfoLogger [main] Starting MockDiffusionPublisherApplicationTests on DESKTOP-F7N3NAH with PID 7812 (started by Anonymous in D:\Workspace\Java)
+2018-11-09 17:48:00,438 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2018-11-09 17:48:03,887 ERROR c.o.m.s.DiffusionService [main] Couldn't connect to diffusion
 com.pushtechnology.diffusion.client.session.SessionEstablishmentException: The session failed to be established. No further operations are possible
 	at com.pushtechnology.diffusion.command.client.v4.V4InternalSession.connect(V4InternalSession.java:225) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.client.session.impl.SessionContainerFactoryImpl.startSession(SessionContainerFactoryImpl.java:165) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.client.session.impl.SessionFactoryImpl.openSession(SessionFactoryImpl.java:255) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
-	at com.pushtechnology.diffusion.client.session.impl.SessionFactoryImpl.open(SessionFactoryImpl.java:243) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.connect(DiffusionService.java:46) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.init(DiffusionService.java:27) [classes/:?]
+	at com.pushtechnology.diffusion.client.session.impl.SessionFactoryImpl.open(SessionFactoryImpl.java:192) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
+	at com.oddschecker.mockdiffusionpublisher.services.DiffusionService.connect(DiffusionService.java:74) [classes/:?]
+	at com.oddschecker.mockdiffusionpublisher.services.DiffusionService.init(DiffusionService.java:31) [classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -48,17 +36,56 @@ com.pushtechnology.diffusion.client.session.SessionEstablishmentException: The s
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) [spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
-	at com.oddschecker.mockdiffusionpublisher.MockDiffusionPublisherApplication.main(MockDiffusionPublisherApplication.java:10) [classes/:?]
-Caused by: com.pushtechnology.diffusion.comms.connection.ConnectionException: Failed to connect to ws://localhost:6458/diffusion: Connection refused: no further information
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) [spring-boot-test-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-2.22.1.jar:2.22.1]
+Caused by: com.pushtechnology.diffusion.comms.connection.ConnectionException: Failed to connect to ws://diffusion:6785/diffusion: null
 	at com.pushtechnology.diffusion.comms.connection.SocketChannelFactory.connect(SocketChannelFactory.java:64) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.NetworkChannelFactoryImpl.createChannel(NetworkChannelFactoryImpl.java:42) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.CascadeDriverImpl.cascade(CascadeDriverImpl.java:212) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
@@ -66,11 +93,11 @@ Caused by: com.pushtechnology.diffusion.comms.connection.ConnectionException: Fa
 	at com.pushtechnology.diffusion.comms.connection.CascadeDriverImpl.connect(CascadeDriverImpl.java:115) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.OutboundConnectionFactoryImpl.connectMessageChannel(OutboundConnectionFactoryImpl.java:95) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.command.client.v4.V4InternalSession.connect(V4InternalSession.java:199) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
-	... 43 more
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:?]
-	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[?:?]
-	at com.pushtechnology.diffusion.comms.connection.SocketChannelFactory.connectSocket(SocketChannelFactory.java:203) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
+	... 82 more
+Caused by: java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:112) ~[?:?]
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622) ~[?:?]
+	at com.pushtechnology.diffusion.comms.connection.SocketChannelFactory.connectSocket(SocketChannelFactory.java:189) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.SocketChannelFactory.connectDirectly(SocketChannelFactory.java:105) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.SocketChannelFactory.connect(SocketChannelFactory.java:60) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.NetworkChannelFactoryImpl.createChannel(NetworkChannelFactoryImpl.java:42) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
@@ -79,132 +106,9 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at com.pushtechnology.diffusion.comms.connection.CascadeDriverImpl.connect(CascadeDriverImpl.java:115) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.comms.connection.OutboundConnectionFactoryImpl.connectMessageChannel(OutboundConnectionFactoryImpl.java:95) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
 	at com.pushtechnology.diffusion.command.client.v4.V4InternalSession.connect(V4InternalSession.java:199) ~[diffusion-client-6.1.3.jar:6.1.3_01-58213]
-	... 43 more
-2018-11-08 01:50:43,934 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2018-11-08 01:50:44,063 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService
-2018-11-08 01:50:44,066 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2018-11-08 01:50:44,067 INFO o.a.j.l.DirectJDKLog [main] Using a shared selector for servlet write/read
-2018-11-08 01:50:44,076 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2018-11-08 01:50:44,079 INFO o.s.b.StartupInfoLogger [main] Started MockDiffusionPublisherApplication in 2.698 seconds (JVM running for 3.334)
-2018-11-08 01:50:45,527 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2018-11-08 01:50:45,527 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2018-11-08 01:50:45,531 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 4 ms
-2018-11-08 01:50:54,067 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
-2018-11-08 01:50:54,069 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
-2018-11-08 01:50:54,070 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
-2018-11-08 01:50:54,073 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
-2018-11-08 01:50:54,074 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
-2018-11-08 01:50:54,074 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
-2018-11-08 01:50:54,075 ERROR c.o.m.DiffusionService [diffusion-publisher-scheduler-task-pool1] Couldn't publish topic /subevent/2589234578923
-java.lang.NullPointerException: null
-	at com.oddschecker.mockdiffusionpublisher.DiffusionService.publish(DiffusionService.java:32) [classes/:?]
-	at com.oddschecker.mockdiffusionpublisher.DiffusionPublisher.run(DiffusionPublisher.java:29) [classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:305) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1135) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:844) [?:?]
+	... 82 more
+2018-11-09 17:48:04,293 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-09 17:48:04,567 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService
+2018-11-09 17:48:04,573 INFO o.s.b.StartupInfoLogger [main] Started MockDiffusionPublisherApplicationTests in 4.365 seconds (JVM running for 5.123)
+2018-11-09 17:48:04,853 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-1] Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-09 17:48:04,854 WARN o.s.b.f.a.InitDestroyAnnotationBeanPostProcessor [Thread-1] Destroy method on bean with name 'diffusionService' threw an exception: java.lang.NullPointerException

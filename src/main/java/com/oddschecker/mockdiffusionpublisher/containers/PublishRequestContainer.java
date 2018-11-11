@@ -1,4 +1,6 @@
-package com.oddschecker.mockdiffusionpublisher.models;
+package com.oddschecker.mockdiffusionpublisher.containers;
+
+import com.oddschecker.mockdiffusionpublisher.models.Topic;
 
 import java.util.List;
 
