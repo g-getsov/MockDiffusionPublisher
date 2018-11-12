@@ -67,7 +67,7 @@ public class DiffusionService {
             return Diffusion.sessions()
                     .principal("admin")
                     .password("password")
-                    .serverHost("diffusion")
+                    .serverHost("localhost")
                     .serverPort(6785)
                     .transports(SessionAttributes.Transport.WEBSOCKET)
                     .secureTransport(false)
